@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {SafeAreaView, Text, View, StyleSheet} from 'react-native';
-import { List, Button, Checkbox } from 'react-native-paper';
+import { List, Button, Checkbox, ProgressBar } from "react-native-paper";
 
 function MyOrder({ navigation }) {
   return (
@@ -8,6 +8,18 @@ function MyOrder({ navigation }) {
       <Text>
         Votre commande est en cours de préparation !
       </Text>
+      <View
+        style={{
+          position: "absolute",
+          top: 0,
+          flex: 1,
+          alignSelf: "stretch",
+          right: 0,
+          left: 0,
+        }}
+      >
+        <ProgressBar progress={1}/>
+      </View>
     </View>
   );
 }

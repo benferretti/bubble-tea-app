@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {SafeAreaView, Text, View, StyleSheet} from 'react-native';
-import { List, Button, Checkbox } from 'react-native-paper';
+import { List, Button, Checkbox, ProgressBar, Colors } from 'react-native-paper';
 
 function MyOrder({ route, navigation }) {
   console.log(route.params);
@@ -11,11 +11,25 @@ function MyOrder({ route, navigation }) {
         Ma commande : Bubble Tea {base} {flavor} taille {size}
       </Text>
       <Button
-        style={{marginTop: 20}}
+        style={{ marginTop: 20 }}
         mode="contained"
         icon="check"
         onPress={() => navigation.navigate("Confirmation")}
-      >Valider</Button>
+      >
+        Valider
+      </Button>
+      <View
+        style={{
+          position: "absolute",
+          top: 0,
+          flex: 1,
+          alignSelf: "stretch",
+          right: 0,
+          left: 0,
+        }}
+      >
+        <ProgressBar progress={0.666}/>
+      </View>
     </View>
   );
 }

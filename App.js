@@ -1,7 +1,7 @@
 
 import * as React from 'react';
-import { List, Button, Checkbox } from 'react-native-paper';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import { List, Button, ProgressBar, Colors } from 'react-native-paper';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import OrderScreen from './screens/Order'
@@ -402,6 +402,9 @@ function HomeScreen ({ navigation }) {
           </List.Accordion>
         </List.Accordion>
       </List.Section>
+      <View style={{position: 'absolute', top: 0, flex: 1, alignSelf: 'stretch', right: 0, left: 0}}>
+        <ProgressBar progress={0.333} />
+      </View>
     </SafeAreaView>
   );
 };
