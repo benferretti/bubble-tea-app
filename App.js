@@ -14,6 +14,8 @@ function HomeScreen ({ navigation }) {
   const handlePress = () => setExpanded(!expanded);
   const [checked, setChecked] = React.useState('first');
 
+  console.log("branch Add test");
+
   return (
     <SafeAreaView style={{ justifyContent: "center", alignContent: "center" }}>
       <List.Section title="Personnalisez votre Bubble Tea">
