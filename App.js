@@ -19,7 +19,7 @@ function HomeScreen ({ navigation }) {
       <List.Section title="Personnalisez votre Bubble Tea">
         <List.Accordion
           title="Base Lait"
-          left={(props) => <List.Icon {...props} icon="folder" />}
+          left={(props) => <List.Icon {...props} icon="beer-outline" />}
         >
           <List.Accordion style={styles.flavor} title="Fraise">
             <Button
@@ -147,7 +147,7 @@ function HomeScreen ({ navigation }) {
         </List.Accordion>
         <List.Accordion
           title="Base Thé Vert"
-          left={(props) => <List.Icon {...props} icon="folder" />}
+          left={(props) => <List.Icon {...props} icon="leaf" />}
         >
           <List.Accordion style={styles.flavor} title="Fraise">
             <Button
@@ -275,7 +275,7 @@ function HomeScreen ({ navigation }) {
         </List.Accordion>
         <List.Accordion
           title="Base Thé Noir"
-          left={(props) => <List.Icon {...props} icon="folder" />}
+          left={(props) => <List.Icon {...props} icon="beer" />}
         >
           <List.Accordion style={styles.flavor} title="Fraise">
             <Button
