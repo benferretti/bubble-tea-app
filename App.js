@@ -36,31 +36,113 @@ function HomeScreen ({ navigation }) {
               Petit
             </Button>
             <Button
-              style={{ Colors: "red" }}
               mode="text"
               color="black"
-              onPress={() => console.log("Pressed")}
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Lait",
+                  flavor: "Fraise",
+                  size: "Moyen",
+                })
+              }
             >
               Moyen
             </Button>
             <Button
-              style={{ Colors: "red" }}
               mode="text"
               color="black"
-              onPress={() => console.log("Pressed")}
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Lait",
+                  flavor: "Fraise",
+                  size: "Grand",
+                })
+              }
             >
               Grand
             </Button>
           </List.Accordion>
           <List.Accordion style={styles.flavor} title="Lychee">
-            <List.Item title="Petit" style={styles.items} />
-            <List.Item title="Moyen" style={styles.items} />
-            <List.Item title="Grand" style={styles.items} />
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Lait",
+                  flavor: "Lychee",
+                  size: "Petit",
+                })
+              }
+            >
+              Petit
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Lait",
+                  flavor: "Lychee",
+                  size: "Moyen",
+                })
+              }
+            >
+              Moyen
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Lait",
+                  flavor: "Lychee",
+                  size: "Grand",
+                })
+              }
+            >
+              Grand
+            </Button>
           </List.Accordion>
           <List.Accordion style={styles.flavor} title="Mangue">
-            <List.Item title="Petit" style={styles.items} />
-            <List.Item title="Moyen" style={styles.items} />
-            <List.Item title="Grand" style={styles.items} />
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Lait",
+                  flavor: "Mangue",
+                  size: "Petit",
+                })
+              }
+            >
+              Petit
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Lait",
+                  flavor: "Mangue",
+                  size: "Moyen",
+                })
+              }
+            >
+              Moyen
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Lait",
+                  flavor: "Mangue",
+                  size: "Grand",
+                })
+              }
+            >
+              Grand
+            </Button>
           </List.Accordion>
         </List.Accordion>
         <List.Accordion
@@ -68,19 +150,127 @@ function HomeScreen ({ navigation }) {
           left={(props) => <List.Icon {...props} icon="folder" />}
         >
           <List.Accordion style={styles.flavor} title="Fraise">
-            <List.Item title="Petit" style={styles.items} />
-            <List.Item title="Moyen" style={styles.items} />
-            <List.Item title="Grand" style={styles.items} />
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Vert",
+                  flavor: "Fraise",
+                  size: "Petit",
+                })
+              }
+            >
+              Petit
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Vert",
+                  flavor: "Fraise",
+                  size: "Moyen",
+                })
+              }
+            >
+              Moyen
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Vert",
+                  flavor: "Fraise",
+                  size: "Grand",
+                })
+              }
+            >
+              Grand
+            </Button>
           </List.Accordion>
           <List.Accordion style={styles.flavor} title="Lychee">
-            <List.Item title="Petit" style={styles.items} />
-            <List.Item title="Moyen" style={styles.items} />
-            <List.Item title="Grand" style={styles.items} />
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Vert",
+                  flavor: "Lychee",
+                  size: "Petit",
+                })
+              }
+            >
+              Petit
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Vert",
+                  flavor: "Lychee",
+                  size: "Moyen",
+                })
+              }
+            >
+              Moyen
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Vert",
+                  flavor: "Lychee",
+                  size: "Grand",
+                })
+              }
+            >
+              Grand
+            </Button>
           </List.Accordion>
           <List.Accordion style={styles.flavor} title="Mangue">
-            <List.Item title="Petit" style={styles.items} />
-            <List.Item title="Moyen" style={styles.items} />
-            <List.Item title="Grand" style={styles.items} />
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Vert",
+                  flavor: "Mangue",
+                  size: "Petit",
+                })
+              }
+            >
+              Petit
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Vert",
+                  flavor: "Mangue",
+                  size: "Moyen",
+                })
+              }
+            >
+              Moyen
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Vert",
+                  flavor: "Mangue",
+                  size: "Grand",
+                })
+              }
+            >
+              Grand
+            </Button>
           </List.Accordion>
         </List.Accordion>
         <List.Accordion
@@ -88,19 +278,127 @@ function HomeScreen ({ navigation }) {
           left={(props) => <List.Icon {...props} icon="folder" />}
         >
           <List.Accordion style={styles.flavor} title="Fraise">
-            <List.Item title="Petit" style={styles.items} />
-            <List.Item title="Moyen" style={styles.items} />
-            <List.Item title="Grand" style={styles.items} />
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Noir",
+                  flavor: "Fraise",
+                  size: "Petit",
+                })
+              }
+            >
+              Petit
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Noir",
+                  flavor: "Fraise",
+                  size: "Moyen",
+                })
+              }
+            >
+              Moyen
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Noir",
+                  flavor: "Fraise",
+                  size: "Grand",
+                })
+              }
+            >
+              Grand
+            </Button>
           </List.Accordion>
           <List.Accordion style={styles.flavor} title="Lychee">
-            <List.Item title="Petit" style={styles.items} />
-            <List.Item title="Moyen" style={styles.items} />
-            <List.Item title="Grand" style={styles.items} />
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Noir",
+                  flavor: "Lychee",
+                  size: "Petit",
+                })
+              }
+            >
+              Petit
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Noir",
+                  flavor: "Lychee",
+                  size: "Moyen",
+                })
+              }
+            >
+              Moyen
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Noir",
+                  flavor: "Lychee",
+                  size: "Grand",
+                })
+              }
+            >
+              Grand
+            </Button>
           </List.Accordion>
           <List.Accordion style={styles.flavor} title="Mangue">
-            <List.Item title="Petit" style={styles.items} />
-            <List.Item title="Moyen" style={styles.items} />
-            <List.Item title="Grand" style={styles.items} />
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Noir",
+                  flavor: "Mangue",
+                  size: "Petit",
+                })
+              }
+            >
+              Petit
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Noir",
+                  flavor: "Mangue",
+                  size: "Moyen",
+                })
+              }
+            >
+              Moyen
+            </Button>
+            <Button
+              mode="text"
+              color="black"
+              onPress={() =>
+                navigation.navigate("Commande", {
+                  base: "Thé Noir",
+                  flavor: "Mangue",
+                  size: "Grand",
+                })
+              }
+            >
+              Grand
+            </Button>
           </List.Accordion>
         </List.Accordion>
       </List.Section>
