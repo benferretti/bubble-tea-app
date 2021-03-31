@@ -5,6 +5,7 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import OrderScreen from './screens/Order'
+import ConfirmationScreen from './screens/Confirmation'
 
 
 function HomeScreen ({ navigation }) {
@@ -124,6 +125,7 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Accueil" component={HomeScreen} />
         <Stack.Screen name="Commande" component={OrderScreen} />
+        <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
