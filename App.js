@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import OrderScreen from './screens/Order'
 import ConfirmationScreen from './screens/Confirmation'
+import bubbletea from './data';
 
 function HomeScreen ({ navigation }) {
   const [editionMode, setEditionMode] = React.useState(false);
@@ -13,6 +14,8 @@ function HomeScreen ({ navigation }) {
   const [chipIcon, setChipIcon] = React.useState('tools');
   const [ProgressBarColor, setProgressBarColor] = React.useState('');
   const [text, setText] = React.useState('');
+  console.log('--------NOUVEAU--------')
+  console.log(bubbletea[2].children);
 
   return (
     <SafeAreaView style={{ justifyContent: "center", alignContent: "center" }}>
