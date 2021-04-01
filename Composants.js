@@ -15,9 +15,7 @@ function HomeScreen ({ navigation }) {
   const [chipIcon, setChipIcon] = React.useState('tools');
   const [ProgressBarColor, setProgressBarColor] = React.useState('');
   const [text, setText] = React.useState('');
-  console.log('--------NOUVEAU--------')
   
-
   return (
     <SafeAreaView style={{ justifyContent: "center", alignContent: "center" }}>
       <ScrollView style={styles.scrollView}>

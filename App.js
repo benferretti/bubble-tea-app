@@ -15,7 +15,6 @@ function HomeScreen ({ navigation }) {
   const [chipIcon, setChipIcon] = React.useState('tools');
   const [ProgressBarColor, setProgressBarColor] = React.useState('');
   const [text, setText] = React.useState('');
-  console.log('--------NOUVEAU--------')
   
 
   return (
