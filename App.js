@@ -1,58 +1,58 @@
 import { StatusBar } from 'expo-status-bar';
+import {List} from 'react-native-paper'
 import React,{Children, useState} from 'react';
 import { 
   StyleSheet, Text, View,
   SafeAreaView, FlatList, Modal,
-  TouchableOpacity, TextInput 
+  TouchableOpacity, TextInput, Button
 } from 'react-native';
 
 const DATA = [
   {
-    id: 1,
+    id: 'lait',
     text: 'Lait',
     children: [
       {
-        id: 50, text: "Fraise, Orange, Citron", children: [{id: 1, text: "Mini"}, {id: 2, text: "Géant"}]
+        id: 50, text: "Fraise, Orange, Citron", children: [{id: -1, text: "Mini"}, {id: -2, text: "Géant"}]
       },
       {
-        id: 51, text: "Pamplemousse, chocolat", children: [{id: 1, text: "Mini"}, {id: 2, text: "Géant"}]
+        id: 51, text: "Pamplemousse, chocolat", children: [{id: -3, text: "Mini"}, {id: -4, text: "Géant"}]
       },
       {
-        id: 52, text: "Beurre fondu, cheddar, gingembre", children: [{id: 1, text: "Mini"}, {id: 2, text: "Géant"}]
+        id: 52, text: "Beurre fondu, cheddar, gingembre", children: [{id: -5, text: "Mini"}, {id: -6, text: "Géant"}]
       }
     ]
   },
   {
-    id: 2,
+    id: 'thé vert',
     text: 'Thé vert',
     children: [
       {
-        id: 21, text: "Jasmin, huile de coude", children: [{id: 1, text: "detail"}, {id: 2, text: "detail"}]
+        id: 53, text: "Jasmin, huile de coude", children: [{id: -1, text: "Mini"}, {id: -2, text: "Géant"}]
       },
       {
-        id: 22, text: "Poudre d'amande, miel", children: [{id: 1, text: "Mini"}, {id: 2, text: "Géant"}]
+        id: 22, text: "Poudre d'amande, miel", children: [{id: -3, text: "Mini"}, {id: -4, text: "Géant"}]
       },
       {
-        id: 23, text: "Poudre de perlinpinpin, sucre", children: [{id: 1, text: "Mini"}, {id: 2, text: "Géant"}]
+        id: 23, text: "Poudre de perlinpinpin, sucre", children: [{id: -5, text: "Mini"}, {id: -6, text: "Géant"}]
       }
     ]
   },
   {
-    id: 3,
+    id: 'coffee',
     text: 'Coffee',
     children: [
       {
-        id: 31, text: "Cola, sel de l'Himalaya", children: [{id: 1, text: "Mini"}, {id: 2, text: "Géant"}]
+        id: 31, text: "Cola, sel de l'Himalaya", children: [{id: -1, text: "Mini"}, {id: -2, text: "Géant"}]
       },
       {
-        id: 32, text: "Butternut, radis noir, vodka", children: [{id: 1, text: "Mini"}, {id: 2, text: "Géant"}]
+        id: 32, text: "Butternut, radis noir, vodka", children: [{id: -3, text: "Mini"}, {id: -4, text: "Géant"}]
       },
       {
-        id: 33, text: "Glace au caramel, chiendent", children: [{id: 1, text: "Mini"}, {id: 2, text: "Géant"}]
+        id: 33, text: "Glace au caramel, chiendent", children: [{id: -5, text: "Mini"}, {id: -6, text: "Géant"}]
       }
     ]
-  },
-  
+  }, 
 ]
 
 export default function App() {
@@ -63,32 +63,48 @@ export default function App() {
   const [editItem, seteditItem] = useState()
 
   const onPressItem = (item) => {
+    console.log('onPress: ITEM')
     setisModalVisible(true)
     setinputText(item.text)
-    seteditItem(item.id)
+    seteditItem(item)
   }
 
-  const renderSubItem = (child) => {
+  const onPressDetails = (details) => {
+    console.log('onPress: DETAILS')
+    setisModalVisible(true)
+    setinputText(details.text)
+    seteditItem(details)
+  }
+
+
+  const onPressSubItem = (item, child, index) => {
+    console.log('onPress: SUBITEM')
+    setisModalVisible(true)
+    setinputText(child.text)
+    seteditItem(child)
+  }
+
+  const renderSubItem = (child, item, index) => {
     let detailsItems = []
     if (child.children) {
-      detailsItems = child.children.map(details => {
-        console.log(details.text)
-        return <Text style={styles.detailsText}>{details.text}</Text>
+      detailsItems = child.children.map((details, index) => {
+        return <TouchableOpacity onPress={()=> onPressDetails(details)}><Text style={styles.detailsText}>{details.text}</Text></TouchableOpacity>
       })
     }
     return (
-      <View>
-      <Text style={styles.subText}>{child.text}</Text>
-      {detailsItems}
-      </View>
+      <TouchableOpacity
+      onPress={()=> onPressSubItem(item, child, index)}>
+        <Text style={styles.subText}>{child.text}</Text>
+        {detailsItems}
+      </TouchableOpacity>
     )
   }
 
   const renderItem = ({item, index}) => {
     let subitems = []
     if (item.children) {
-      subitems = item.children.map(child => {
-        return renderSubItem(child)
+      subitems = item.children.map((child, index) => {
+        return renderSubItem(child, item, index)
       })
     }
     return (
@@ -98,22 +114,51 @@ export default function App() {
       >
         <Text style={styles.text}>{item.text}</Text>
         {subitems}
-        
       </TouchableOpacity>
       )
   }
 
   
   const handleEditItem = (editItem) => {
-    const newData = data.map(item => {
-      if (item.id == editItem) {
-        item.text = inputText
+    console.log('edit item')
+    console.log(editItem)
+
+    if (typeof(editItem.id) === "string") {
+      const newData = data.map(item => {
+        if (item.id == editItem.id) {
+          item.text = inputText
+          return item
+        }
         return item
-      }
-      return item
-    })
-    setData(newData)
-    setisRender(!isRender)
+      })
+      setData(newData)
+      setisRender(!isRender)
+    }
+    else if (typeof(editItem.id) == "number" && editItem.id > 0) {
+        // subitem
+      const newData = data.map((item, indexi) => {
+        item.children.map((subitem, indexj) => {
+            if (subitem.id === editItem.id) {
+              subitem.text = inputText
+              return item
+            }
+            return item
+        })
+      })
+    }
+    else if (typeof(editItem.id) == "number" && editItem.id < 0) {
+      const newData = data.map((item, indexi) => {
+        item.children.map((subitem, indexj) => {
+           subitem.children.map((details, indexk) => {
+             if (details.id === editItem.id) {
+               details.text = inputText
+               return item
+             }
+             return item
+           })
+        })
+      })
+    }
   }
 
   const onPressSaveEdit = () => {
@@ -149,10 +194,7 @@ export default function App() {
             style={styles.touchableSave}
           >
             <Text style={styles.text}>Save</Text>
-
-          </TouchableOpacity> 
-
-
+          </TouchableOpacity>
         </View>
 
       </Modal>
@@ -201,5 +243,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 100,
     alignItems: 'center',
     marginTop: 20
-  }
+  },
 });
