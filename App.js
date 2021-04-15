@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import {List} from 'react-native-paper'
 import React,{Children, useState} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { 
   StyleSheet, Text, View,
   SafeAreaView, FlatList, Modal,
-  TouchableOpacity, TextInput, Button
+  TouchableOpacity, TextInput, Button, Image
 } from 'react-native';
 
 const DATA = [
@@ -107,17 +108,26 @@ export default function App() {
         return renderSubItem(child, item, index)
       })
     }
+    
     return (
       <TouchableOpacity
         style={styles.item}
         onPress={()=> onPressItem(item)}
       >
-        <Text style={styles.text}>{item.text}</Text>
+        <Image style={{width:25, height:25}} source={require("./assets/etoile.png")}></Image><Text style={styles.text}>{item.text}</Text>
         {subitems}
       </TouchableOpacity>
       )
   }
 
+  const storeData = async (data) => {
+    try {
+      await AsyncStorage.setItem('FlatlistData', JSON.stringify(data))
+      alert("Data properly saved")
+    } catch (e) {
+      console.error(e)
+    }
+  }
   
   const handleEditItem = (editItem) => {
     console.log('edit item')
@@ -196,8 +206,12 @@ export default function App() {
             <Text style={styles.text}>Save</Text>
           </TouchableOpacity>
         </View>
-
       </Modal>
+      <TouchableOpacity
+        style={styles.touchableSave}
+        onPress={() => storeData( data)}>
+      <Text style={styles.text}>Save Data</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -209,7 +223,7 @@ const styles = StyleSheet.create({
   item: {
     borderBottomWidth: 1,
     borderBottomColor: 'grey',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   subText: {
     fontSize: 20,
@@ -239,7 +253,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   touchableSave: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'orange',
     paddingHorizontal: 100,
     alignItems: 'center',
     marginTop: 20
